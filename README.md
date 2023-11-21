@@ -1,0 +1,2 @@
+# api_call_with_strapi_and_prisma
+25oct_api_call_with_strapi_and_prisma
