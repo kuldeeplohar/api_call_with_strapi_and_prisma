@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 //2 defination area
   function Home() {
     const [subjects , setSubjects] = useState([{name:'e'},{name:'f'}])
-    const [topic , setTopic] = useState([{name:'az'},{name:'ad'}])
+    const [subjects2 , setSubjects2] = useState([{name:'az'},{name:'ad'}])
  //   const three = 1;
      useEffect(()=>{
       
@@ -32,15 +32,15 @@ import { useEffect, useState } from "react";
      
       
       console.log('get1')
-      const res = await fetch('http://localhost:1337/api/topics', {
+      const res = await fetch('http://localhost:3000/api/getSubjects', {
         headers: {
           'Content-Type': 'application/json',
           // 'API-Key': process.env.DATA_API_KEY,
         },
       })
       const data1 = await res.json()
-      console.log('data',data1.data)
-      setTopic(data1.data)
+      console.log('data',data1.msg)
+      setSubjects2(data1.msg)
    
       // return Response.json({ data })
     }
@@ -62,12 +62,12 @@ import { useEffect, useState } from "react";
                   })
                  }
                 </select>
-                <li className="list-group-item text-start fw-bold">SELECT YOUR TOPIC</li>
+                <li className="list-group-item text-start fw-bold">SELECT YOUR SUBJECT2</li>
               <select className='form-control'>
                 {
-                  topic.length > 0 &&
-                  topic.map((cv,idx,arr)=>{
-                    return<option key={idx}>{cv?.attributes?.name}</option>
+                  subjects2.length > 0 &&
+                  subjects2.map((cv,idx,arr)=>{
+                    return<option key={idx}>{cv?.name}</option>
                   })
                  }
                 </select>       
